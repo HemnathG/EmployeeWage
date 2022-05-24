@@ -9,25 +9,35 @@ public class EmployeeWage {
 		int fullTimeHour = 8;
 		int partTimeHour = 4;
 		int workingDay = 20;
+		int workingHours = 100;
 
 		int empWage = 0;
 		int totalwage = 0;
+		int totalworkinghours = 0;
+		int totalworkingdays = 0;
 
-		for (int i = 0; i < workingDay; i++) {
+		while (totalworkingdays < workingDay && totalworkinghours < workingHours) {
 
 			Random random = new Random();
 			int empPresent = random.nextInt(3);
 			System.out.println("Random Value for Employee Attendance is :" + empPresent);
 
+			int x;
 			switch (empPresent) {
 			case 1:
-				empWage = wagePerHour * fullTimeHour;
+				x = wagePerHour * fullTimeHour;
+				empWage = empWage + x;
+				totalworkinghours = totalworkinghours + fullTimeHour;
 				System.out.println("Employee is present and the wage is : " + empWage);
+				totalworkingdays++;
 				break;
 
 			case 2:
-				empWage = wagePerHour * partTimeHour;
+				x = wagePerHour * partTimeHour;
+				empWage = empWage + x;
+				totalworkinghours = totalworkinghours + partTimeHour;
 				System.out.println("Employee is Part time present and the wage is : " + empWage);
+				totalworkingdays++;
 				break;
 
 			default:
@@ -36,9 +46,10 @@ public class EmployeeWage {
 
 			}
 
-			totalwage = totalwage + empWage;
-			System.out.println("Total wage of employee for the month is : " + totalwage);
-
 		}
+		System.out.println(" ");
+		System.out.println("Total Working Days :" + totalworkingdays);
+		System.out.println("Total Working Hours :" + totalworkinghours);
+		System.out.println("Total wage of employee for the month is : " + empWage);
 	}
 }
