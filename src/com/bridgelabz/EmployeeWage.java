@@ -3,16 +3,14 @@ package com.bridgelabz;
 import java.util.Random;
 
 public class EmployeeWage {
-	public static void main(String[] args) {
 
+	public static void calculateWage() {
 		int wagePerHour = 20;
 		int fullTimeHour = 8;
 		int partTimeHour = 4;
 		int workingDay = 20;
 		int workingHours = 100;
-
 		int empWage = 0;
-		int totalwage = 0;
 		int totalworkinghours = 0;
 		int totalworkingdays = 0;
 
@@ -51,5 +49,10 @@ public class EmployeeWage {
 		System.out.println("Total Working Days :" + totalworkingdays);
 		System.out.println("Total Working Hours :" + totalworkinghours);
 		System.out.println("Total wage of employee for the month is : " + empWage);
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to Employee Wage Program with multiple UseCases");
+		calculateWage();
 	}
 }
