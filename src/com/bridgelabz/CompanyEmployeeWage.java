@@ -2,9 +2,6 @@ package com.bridgelabz;
 
 public class CompanyEmployeeWage {
 
-	static final int EMP_FULL_TIME = 1;
-	static final int EMP_PART_TIME = 2;
-
 	public String company;
 	public int wagePerHour;
 	public int workingDay;
