@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+
 public class CompanyEmployeeWage {
 
 	public String company;
@@ -7,6 +9,8 @@ public class CompanyEmployeeWage {
 	public int workingDay;
 	public int totalWorkHrs;
 	public int totalWage;
+
+	public ArrayList<Integer> empDailyWage = new ArrayList<Integer>();
 
 	public CompanyEmployeeWage(String company, int wagePerHour, int workingDay, int totalWorkHrs) {
 		this.company = company;
