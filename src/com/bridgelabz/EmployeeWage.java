@@ -1,6 +1,8 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class EmployeeWage implements InterfaceEmployeeWage {
@@ -9,9 +11,11 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 	static final int EMP_PART_TIME = 2;
 
 	private ArrayList<CompanyEmployeeWage> companyEmployeeWageArrayList;
+	private Map<String, CompanyEmployeeWage> companyToEmployeeWageMap;
 
 	public EmployeeWage() {
 		companyEmployeeWageArrayList = new ArrayList<CompanyEmployeeWage>();
+		companyToEmployeeWageMap = new HashMap<>();
 	}
 
 	public void addCompanyEmpWage(String company, int wagePerHour, int workingDay, int totalWorkHrs) {
@@ -19,8 +23,9 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 		CompanyEmployeeWage companyEmployeeWage = new CompanyEmployeeWage(company, wagePerHour, workingDay,
 				totalWorkHrs);
 		companyEmployeeWageArrayList.add(companyEmployeeWage);
+		companyToEmployeeWageMap.put(company, companyEmployeeWage);
 	}
-
+	
 	public void calculateEmpWage() {
 		for (int i = 0; i < companyEmployeeWageArrayList.size(); i++) {
 			CompanyEmployeeWage companyEmployeeWage = companyEmployeeWageArrayList.get(i);
@@ -29,6 +34,11 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 			displayDailyWageForCompany(companyEmployeeWage);
 			System.out.println(companyEmployeeWage.company + " Total Wage is " + companyEmployeeWage.totalWage);
 		}
+	}
+
+	@Override
+	public int getTotalWage(String company) {
+		return companyToEmployeeWageMap.get(company).totalWage;
 	}
 
 	public void displayDailyWageForCompany(CompanyEmployeeWage companyEmployeeWage) {
@@ -93,6 +103,10 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 		empWage.addCompanyEmpWage("AMAZON", 90, 21, 222);
 		empWage.addCompanyEmpWage("TARGET", 58, 22, 175);
 		empWage.calculateEmpWage();
+		System.out.println();
+		System.out.println("Total Wage for BIG BASKET:" + empWage.getTotalWage("BIG BASKET"));
+		System.out.println("Total Wage for AMAZON:" + empWage.getTotalWage("AMAZON"));
+		System.out.println("Total Wage for TARGET:" + empWage.getTotalWage("TARGET"));
 
 	}
 
