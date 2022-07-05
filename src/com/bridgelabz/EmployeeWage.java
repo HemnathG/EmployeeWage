@@ -70,6 +70,7 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 				empWage = empWage + x;
 				totalWorkingHours = totalWorkingHours + 8;
 				System.out.println("Employee is present and the wage is : " + empWage);
+				System.out.println("Daily Wage For Day :" + x );
 				totalWorkingDays++;
 				break;
 
@@ -78,6 +79,7 @@ public class EmployeeWage implements InterfaceEmployeeWage {
 				empWage = empWage + x;
 				totalWorkingHours = totalWorkingHours + 4;
 				System.out.println("Employee is Part time present and the wage is : " + empWage);
+				System.out.println("Daily Wage For Day :" + x );
 				totalWorkingDays++;
 				break;
 
